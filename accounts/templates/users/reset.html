@@ -1,0 +1,58 @@
+{% extends 'homepages.html' %}
+
+{% block content %}
+
+<h3>Enter new password </h3>
+
+<br><br>
+
+<h5> Please enter your new password twice so we can verify you typed it in correctly.
+
+
+</h5>
+
+
+
+
+
+
+
+
+<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+    <div class="card-body">
+    <h4 class="card-title mb-4">Enter Your new Password
+
+
+  </h4>
+  
+  <br><br>
+
+    <form method="POST">
+
+
+        {% csrf_token %}
+
+
+        <div class="form-group">
+            {{form}}
+
+            <br><br>
+            <br><br>
+          
+            <input type="submit" class="btn btn-primary btn-block"/>  
+            
+
+        </div> <!-- form-group// -->
+        
+    </form>
+    </div> <!-- card-body.// -->
+  </div> 
+  
+  <!-- card .// -->
+
+  <br><br>
+  <br><br>
+
+
+{% endblock %}
+

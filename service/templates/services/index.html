@@ -1,0 +1,69 @@
+{% extends 'homepages.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="section-intro padding-y-sm">
+    <div class="container">
+    
+   
+    
+    </div> <!-- container //  -->
+    </section>
+    <!-- ========================= SECTION MAIN END// ========================= -->
+    
+    <!-- ========================= SECTION  ========================= -->
+    <section class="section-name padding-y-sm">
+    <div class="container">
+    
+    <header class="section-heading">
+
+       
+     <div>
+            <img src="{% static '/images/handy.jpg' %}" alt="handy" style="width: 1220px;height: 410px; border-radius: 30px;"/>
+
+            <h1 style="position: relative; top: -300px; margin-left: 260px; color: aqua;">Serch For Handy Men From Your Home</h1>
+            <p style="position: relative; top: -280px; margin-left: 380px; color: black; font-size: 20px; font-weight: bold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Choose Your Wilaya Then find The Best Handy Men for you </p>
+            <h3 class="section-title">Popular Services</h3>
+
+        </div>
+
+    </header><!-- sect-heading -->
+    
+    <div class="row">
+        {% for service in service %}
+
+        <div class="col-md-3">
+
+            <div class="card card-product-grid">
+
+                <a href="{% url 'show-detail' service.id %}" class="img-wrap"> <img src="{{service.image.url}}"> </a>
+
+                <figcaption class="info-wrap">
+                    <a href="{% url 'show-detail' service.id %}" class="title">{{service.Service_name}}</a>
+                    <div class="price mt-1">{{service.category.wilaya}}</div> <!-- price-wrap.// -->
+                    <div class="price mt-1">222</div> <!-- price-wrap.// -->
+
+                    
+
+                </figcaption>
+            </div>
+        </div> <!-- col.// -->
+        {% endfor %}
+
+       
+    </div> <!-- row.// -->
+    
+    </div><!-- container // -->
+    </section>
+    <!-- ========================= SECTION  END// ========================= -->
+    
+    
+    
+    
+
+
+
+{% endblock %}

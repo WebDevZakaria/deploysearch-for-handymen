@@ -1,0 +1,158 @@
+{% load static %}
+<header class="section-header">
+    <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTop4">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                 <a href="#" class="nav-link">   English </a>
+                
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"> USD </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
+            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+        </ul> <!-- list-inline //  -->
+      </div> <!-- navbar-collapse .// -->
+    </div> <!-- container //  -->
+    </nav>
+    
+    
+    
+    <section class="header-main border-bottom">
+        <div class="container">
+    <div class="row align-items-center">
+        <a href="{% url 'index' %}" class="brand-wrap">
+            <img class="logo" src="{% static './images/servicelogo.png' %}">
+        <div class="col-lg-1 col-md-2 col-3">
+            <a href="{% url 'profiles' %}"  class="btn btn-outline-warning"  class="brand-wrap">  Admin Profile   </a>
+
+
+        </div>
+        
+        <div class="col-lg col-sm col-md col-3 flex-grow-0">
+            <div class="category-wrap dropdown d-inline-block float-right">
+
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle "  data-toggle="dropdown"
+                style="background-color:azure ;color:coral;margin: 0px; width: 180px;"> 
+                    <i class="fa fa-bars"></i> Select your Wilaya 
+                </button>
+
+                <div class="dropdown-menu">                 
+
+                    {% for links in links %}
+
+                    <a class="dropdown-item"  href="{% url 'category' links.id %}">  {{links.wilaya_name}}  - {{links.wilaya_matricule}}  </a>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>  <!-- category-wrap.// -->
+        </div> <!-- col.// -->
+
+
+        {% if request.user.is_authenticated and user.is_servicecreator %}
+
+        <a href="{% url 'create-service' %}" class="btn btn-outline-warning" style="margin-right:20px;">Create Service </a> <br>
+        
+        <a href="{% url 'service-commande' %}"  class="btn btn-outline-warning" style="margin-right:20px;">Service Commande </a> <br>
+        
+        {% elif request.user.is_authenticated and user.is_admin %}
+        
+        <a href="{% url 'admin-page' %}" class="btn btn-outline-warning" style="margin-right:20px;">Admin Page </a> <br>
+
+        {% elif request.user.is_authenticated and user.is_admin and user.is_servicecreator %}
+
+        <a href="{% url 'create-service' %}" class="btn btn-outline-warning" style="margin-right:20px;">Create Service </a> <br>
+        
+        <a href=""  class="btn btn-outline-warning" style="margin-right:20px;">Service Commande </a> <br>
+
+        <a href="{% url 'admin-page' %}" class="btn btn-outline-warning" style="margin-right:20px;">Admin Page </a> <br>
+
+        {% endif %}
+
+
+        
+
+
+        
+        <div class="col-lg  col-md-6 col-sm-12 col">
+            <form action="#" class="search">
+                <div class="input-group w-100">
+
+                    <input type="text" class="form-control" style="width:60%;" placeholder="Search">
+
+                    <div class="input-group-append">
+                    
+                      <button class="btn btn-primary" type="submit" style="background: #000;">
+
+                        submit
+
+                      </button>
+                
+                    </div>
+
+                </div>
+
+            </form> <!-- search-wrap .end// -->
+
+        </div> <!-- col.// -->
+
+        <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+            
+                    <div class="d-flex mb-lg-0">
+                        <div class="widget-header">
+                            <small class="title text-muted">Welcome guest!</small>
+                            <div> 
+                                {% if request.user.is_authenticated %}
+                            
+                                <a href="{% url 'logout' %}">Sign out</a> <span class="dark-transp"> | </span>
+
+                                {% else %}
+
+                                <a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
+                                
+                            {% endif %}
+
+                            <a href="{% url 'register-home' %}"> Register</a>
+      
+                            </div>
+
+                        </div>
+
+                        <a href="" class="widget-header m-3">
+                    
+                            <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                            
+                            <span class="badge badge-pill badge-danger notify"></span>
+                        
+                            
+                        </a>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'dash-board' %}" class="widget-header m-3">
+                    
+                            <div class="icon icon-sm rounded-circle border"><i class="fa fa-user" aria-hidden="true"></i></div>
+                            
+                            
+                        </a>
+                        {% endif %}
+                        
+          
+                    </div> <!-- widgets-wrap.// -->
+                </div> <!-- col.// -->
+    </div> <!-- row.// -->
+        </div> <!-- container.// -->
+    </section> <!-- header-main .// -->
+    
+    
+    
+    
+    </header> <!-- section-header.// -->
+    

@@ -1,0 +1,178 @@
+{% extends 'homepages.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="section-content padding-y bg" style="width: 100%;">
+    <div class="container" style="width: 100%;">
+    
+    <!-- ============================ COMPONENT 1 ================================= -->
+
+
+    
+    <div class="row">
+        <aside class="" style="width: 100%;">
+            <div class="card">
+                <h5 class="card-header">
+
+                  Billing Address
+                </h5>
+
+                <div class="card-body">
+
+                  <class="card-text mb-0"> First Name: {{order.owner.first_name}}</p>
+                  <br>
+                  <p class="card-text mb-0">Last Name:{{order.owner.last_name}}</p>
+
+                  <br>
+
+                  <p class="card-text mb-0">Phone Number:{{order.owner.phone_number}}</p>
+
+                  <br>
+
+                  <p class="card-text mb-0">Email: {{order.owner.email}}</p>
+
+                  <br>
+                  <p class="card-text mb-0">  Wilaya:{{order.wilaya}}</p>
+
+                  <br>
+
+                  <p class="card-text mb-0">Adress:{{order.adress_line_1}}</p>
+
+                  <br>
+                  <p class="card-text mb-0">Adress2:{{order.adress_line_2}}</p>
+
+                  <br>
+
+                  <p class="card-text mb-0">State:{{order.state}}</p>
+
+                  <br>
+
+                  <p class="card-text mb-0"> City: {{order.city}}</p>
+                  
+                  <br>
+
+                  <form action="{% url 'order-success' %}" method="GET">
+
+                 Order number: <input type="text" value="{{order.order_number}}" name="ordernum">
+
+                 <input type="submit" value="Save your order " class="btn btn-outline-success btn-block" style="width: 100%;"></a>
+
+
+<br>
+
+<br>
+
+</form>
+          
+              </div>
+
+              </div>
+
+              <div class="card">
+                <h5 class="card-header">
+                  Payement method
+                </h5>
+                <div class="card-body">
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <h5 class="card-header">
+review Service                
+</h5>
+
+<table class="table table-borderless table-shopping-cart">
+  <thead class="text-muted">
+  <tr class="small text-uppercase">
+    <th scope="col">Service</th>
+ 
+    <th scope="col" class="text-right" width="200"> </th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+      {% for cartitem in cartitem %}
+      
+  <tr>
+      <td>
+
+          <figure class="itemside align-items-center">
+              <div class="aside"><img src="{{cartitem.service.image.url}}" class="img-sm"></div>
+
+              <figcaption class="info">
+                  <a href="#" class="title text-dark">{{cartitem.service.Service_name}}</a>
+                  
+
+                  <p class="text-muted small"></p>
+               
+
+
+              </figcaption>
+
+          </figure>
+
+      </td>
+      
+      <td> 
+          <!-- col.// -->
+                     
+                      </div> <!-- col.// -->
+      </td>
+      <td> 
+        <!-- price-wrap .// -->
+      </td>
+     
+  </tr>
+
+  
+  {% endfor %}
+  </tbody>
+  </table>
+</div> <!-- col.// -->
+      </td>
+              </div>
+        </aside> <!-- col.// -->
+        <aside>
+    
+            <div class="card">
+            <div class="card-body">
+                
+                <hr>
+
+                
+            </div> <!-- card-body.// -->
+
+            </div> <!-- card.// -->
+            
+    </aside> <!-- col.// -->
+   
+    
+    
+    </div> <!-- row.// -->
+
+    <!-- ============================ COMPONENT 1 END .// ================================= -->
+    
+    </div> <!-- container .//  -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

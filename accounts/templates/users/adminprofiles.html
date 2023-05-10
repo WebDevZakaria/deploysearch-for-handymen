@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>ZEDPHONE | One of the Biggest Online Shopping Platform</title>
+
+<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 5 -->
+<link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+
+
+
+
+<link rel="shortcut icon" href="imagess/favicon.ico" type="image/x-icon" />
+  <!-- Icon - IconMonster -->
+ <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+  <!-- Mumble UI -->
+  <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+  <!-- Dev Search UI -->
+   <link rel="stylesheet" href="{% static 'styles/app.css' %}" /> 
+
+
+
+
+
+
+
+
+<!-- custom javascript -->
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+}); 
+// jquery end
+</script>
+
+</head>
+<body>
+    
+    {% include 'includes/navar.html' %}
+
+
+    <!-- Main Section -->
+<main class="home">
+    <section class="hero-section text-center">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2>CONTACT WITH <span>ADMIN </span></h2>
+          <h2>SEND MESSAGE TO ADMIN</h2>
+
+
+
+        </div>
+
+       
+      </div>
+    </section>
+    <!-- Search Result: DevList -->
+    <section class="devlist">
+      <div class="container">
+        <div class="grid grid--three">
+{% for p in profile %}
+          <div class="column card">
+            <div class="dev">
+              <a href="{% url 'user-pro' p.id %}" class="card__body">
+                  
+                <div class="dev__profile">
+                  <img class="avatar avatar--md" src="{{p.profile_image.url}}" alt="image" />
+                  <div class="dev__meta">
+
+                    <h3>{{p.first_name}}</h3>
+
+                    <h5>{{p.email|slice:"60"}}</h5>
+
+                  </div>
+
+                </div>
+
+                <p class="dev__info">
+                    {{p.phone_number|slice:"100"}}
+                </p>
+
+                <div class="dev__skills">
+                  <span class="tag tag--pill tag--main">
+                   
+                  </span>
+                </div>
+
+              </a>
+            </div>
+
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================= SECTION MAIN ========================= -->
+
+<!-- ========================= FOOTER ========================= -->
+
+<!-- ========================= FOOTER END // ========================= -->
+
+</body>
+</html>

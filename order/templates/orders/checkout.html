@@ -1,0 +1,177 @@
+{% extends 'homepages.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<section class="section-content padding-y bg">
+    <div class="container">
+    
+    
+    
+    <!-- ============================ COMPONENT 2 ================================= -->
+    <div class="row">
+            <main class="col-md-8">
+    
+    <article class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Review cart</h4>
+        <div class="row">
+            {% for cartitem in cartitem %}
+
+            <div class="col-md-6">
+                <figure class="itemside  mb-4">
+                    <div class="aside"><img src="{{cartitem.service.image.url}}" class="border img-sm"></div>
+                    <figcaption class="info">
+                        <p> {{cartitem.service.Service_name}} </p>
+
+                        <span class="text-muted"> owner: {{cartitem.service.owner.first_name}}  </span>
+                        <br>
+                      
+
+                        <span class="text-muted"></span>
+
+                    </figcaption>
+                </figure>
+            </div>
+
+            {% endfor %}
+ 
+             <!-- col.// -->
+             <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- card-body.// -->
+    </article> <!-- card.// -->
+    
+    
+    <article class="card" style="height: 500px;">
+    <div class="card-body" style="display: block;">
+        <h4 class="card-title mb-4" style="text-align: center;"> Your InFo</h4>
+
+
+        <form action="{%  url 'checkout' %}" method="POST">
+
+            {% csrf_token %}
+
+
+
+            <div class="row">
+               
+                
+                <div class="form-group col-sm-12" style="text-align: center;">
+
+                    <label>Adress_Line_1</label>
+
+                    {{orderform.adress_line_1}}
+
+
+                </div>
+                <br>
+                <br>
+                <br>
+                
+
+                
+                <div class="form-group col-sm-12" style="text-align: center;">
+
+                    <label>adress_line_2</label>
+
+                    {{orderform.adress_line_2}}
+
+                </div>
+                
+                <br>
+                <br>
+                <br>
+
+                
+                <div class="form-group col-sm-12" style="text-align: center;">
+
+                    <label style="margin-right: 60px;">state  </label>
+
+                    {{orderform.state}}
+
+
+                </div>
+            
+                <br>
+                <br>
+                <br>
+                
+
+
+                <div class="form-group col-sm-12" style="text-align: center;">
+
+                    <label style="margin-right: 60px;">city</label>
+                    
+                    {{orderform.city}}
+
+
+                </div>
+                <br>
+                <br>
+                <br>
+                
+
+
+                <div class="form-group col-sm-12" style="text-align: center;">
+
+                    <label>order_note</label>
+                    
+                    {{orderform.order_note}}
+
+
+                </div>
+                <br>
+                <br>
+                <br>
+                <br><br>
+                
+
+                <input type="submit" value="Place Order" class="btn btn-outline-success btn-block">
+
+
+
+            </div> <!-- row.// -->	
+        </form>
+    </div> <!-- card-body.// -->
+    </article> <!-- card.// -->
+    
+    
+      
+            </main> <!-- col.// -->
+            <aside class="col-md-4">
+                <div class="card">
+            <div class="card-body">
+                
+                <hr>
+                <p class="text-center mb-3">
+                    <img src="" height="26">
+                </p>
+                <a href="./place-order.html" class="btn btn-outline-success btn-block"> Place Order </a>
+                
+            </div> <!-- card-body.// -->
+            </div> <!-- card.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    
+    <!-- ============================ COMPONENT 2 END//  ================================= -->
+    
+    
+    
+    
+    </div> <!-- container .//  -->
+    </section>
+
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+    
+
+
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'homepages.html' %}
+
+
+{% block content %}
+
+
+
+
+
+<section class="section-conten padding-y bg">
+
+    <div class="container">
+        <div class="row">
+        {% include 'includes/sidebar.html' %}
+
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header">
+                <strong class="d-inline-block mr-3">your order history: </strong>
+
+            </header>
+            <div class="card-body">
+                <div class="row">
+                   <div class="colo-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+
+                            <th scope="col">Service</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">wilaya</th>
+                            <th scope="col">Baladiya</th>
+                            <th scope="col">Owner Full_name</th>
+                            <th scope="col">Owner Phone_number</th>
+
+                          </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for order in order %}
+
+                          <tr>
+
+                            <td>{{order.service.Service_name}}</td>
+                            <td>{{order.service.category}}</td>
+                            <td>{{order.service.wilaya}} </td>
+                            <td>{{order.service.baladiya}} </td>
+                            <td>{{order.service.owner.first_name}} {{order.service.owner.last_name}} </td>
+                            <td>{{order.service.owner.phone_number}} </td>
+                            <td> <img class="avatar avatar--md" src="{{order.service.image.url}}" style="width: 80px;" alt="image" /></td>
+
+                             
+                            
+
+                            
+
+
+
+                          </tr>
+
+                          {% endfor %}
+
+                        </tbody>
+
+                      </table>
+
+                   </div>      
+                </div> <!-- row.// -->
+            </div> <!-- card-body .// -->      
+       
+            </article> <!-- order-group.// --> 
+        </main>
+       </div> <!-- row.// -->
+       </div>
+    
+    
+    </section>
+    <!-- ========================= SECTION CONTENT END// 
+
+
+        {% endblock %}

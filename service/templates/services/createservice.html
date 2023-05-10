@@ -1,0 +1,160 @@
+{% extends 'homepages.html' %}
+
+{% block content %}
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+
+    <!-- ============================ COMPONENT REGISTER   ================================= -->
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+          <article class="card-body">
+            <header class="mb-4"><h4 class="card-title">Create service</h4></header>
+
+            <form action="{% url 'create-service' %}" method="POST" enctype="multipart/form-data" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
+                
+                {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Service_name</label>
+
+                            {{service.Service_name}}
+
+                        </div> <!-- form-group end.// -->
+
+                        <div class="col form-group">
+                            <label>Description</label>
+                            {{service.description}}
+                        </div> <!-- form-group end.// -->
+
+                    </div> <!-- form-row end.// -->
+                    
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+
+                          <label>Select image for your Services  </label>
+
+                          {{service.images}}
+                          
+                        </div> <!-- form-group end.// -->
+
+                         <!-- form-group end.// -->
+                    </div> <!-- form-row.// -->
+               
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>your_sertificate </label>
+
+                          {{service.your_sertificate}}
+
+                        </div> <!-- form-group end.// -->
+
+                         <!-- form-group end.// -->
+                    </div> <!-- form-row.// -->
+                    
+                 <!-- form-row.// -->
+
+
+                 <div class="form-row">
+
+                    <div class="form-group col-md-6">
+
+                      <label>select your baladiya </label>
+
+                      {{service.baladiya}}
+
+                    </div> <!-- form-group end.// -->
+                    <!-- form-group end.// -->
+                </div> <!-- form-row.// -->
+
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+
+                          <label>select your category </label>
+
+                          {{service.category}} 
+
+                        </div> <!-- form-group end.// -->
+                        <!-- form-group end.// -->
+                    </div> <!-- form-row.// -->
+
+                    
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary btn-block"> Send  </button>
+
+                    </div> <!-- form-group// -->      
+
+                </form>
+
+            </article><!-- card-body.// -->
+
+        </div> <!-- card .// -->
+
+        <br><br>
+
+
+
+        
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_baladiya").change(function () {
+        const url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+        const baladiyaId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'baladiya_id': baladiyaId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_category").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+                */
+            }
+        });
+
+    });
+    
+</script>
+
+
+    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+    {% if service.errors %}
+    {% for field in service %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+    
+    
+
+
+
+{% endblock %}
