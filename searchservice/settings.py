@@ -148,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'zikoubouregbi@gmail.com'
+EMAIL_HOST_USER = 'zedkaria2424@gmail.com'
 EMAIL_HOST_PASSWORD = 'snsdgujypzwktptt'
 EMAIL_USE_TLS = True
 # Default primary key field type

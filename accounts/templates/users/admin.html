@@ -332,6 +332,8 @@
                                             <th>Cerfiticate of The User</th>
                                             <th>Category</th>
                                             <th>Baladiya</th>
+                                            <th>Accepte</th>
+                                            <th>Delete</th>
 
                                             
 
@@ -347,8 +349,10 @@
                                             <td>{{service.description}}</td>
 
 
-                                            <td><img src="{{service.images.url}}" alt="" style="width: 100px; height:60px ;"></td>
-                                            <td><img src="{{service.your_sertificate.url}}" alt="" style="width: 100px; height:60px ;"></td>
+                                            <td><img src="{{service.images.url}}" alt="" style="width: 100px; height:60px ;" ></td>
+                                            
+                                            <td><img src="{{service.your_sertificate.url}}" alt="" style="width: 200px; height:160px ;"  id="enlargableImage" 
+                                                onmouseover="enlargeImage()" onmouseout="resetImageSize()"></td>
                                             <td>{{service.category}}</td>
                                             <td>{{service.baladiya}}</td>
                                             
@@ -419,6 +423,21 @@
 
     <!-- Page level custom scripts -->
     <script src="{%static 'javascript/demo/datatables-demo.js' %}"></script>
+
+
+    <script>
+        function enlargeImage() {
+            var image = document.getElementById('enlargableImage');
+            image.style.width = '200%';  // Adjust the size as needed
+            image.style.height = '200%'; // Adjust the size as needed
+        }
+    
+        function resetImageSize() {
+            var image = document.getElementById('enlargableImage');
+            image.style.width = '10%';  // Reset to the default size
+            image.style.height = '10%'; // Reset to the default size
+        }
+    </script>
 
 </body>
 

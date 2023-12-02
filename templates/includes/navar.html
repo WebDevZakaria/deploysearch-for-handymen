@@ -68,7 +68,7 @@
         
         <a href="{% url 'admin-page' %}" class="btn btn-outline-warning" style="margin-right:20px;">Admin Page </a> <br>
 
-        {% elif request.user.is_authenticated and user.is_admin and user.is_servicecreator %}
+        {% elif request.user.is_authenticated and user.is_servicecreator %}
 
         <a href="{% url 'create-service' %}" class="btn btn-outline-warning" style="margin-right:20px;">Create Service </a> <br>
         
@@ -80,24 +80,13 @@
 
 
         
-
-
-        
         <div class="col-lg  col-md-6 col-sm-12 col">
             <form action="#" class="search">
                 <div class="input-group w-100">
 
                     <input type="text" class="form-control" style="width:60%;" placeholder="Search">
 
-                    <div class="input-group-append">
-                    
-                      <button class="btn btn-primary" type="submit" style="background: #000;">
-
-                        submit
-
-                      </button>
                 
-                    </div>
 
                 </div>
 

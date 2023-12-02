@@ -121,14 +121,12 @@ $(document).ready(function() {
        
           <div class="column column--2of3">
             <div class="devInfo">
-              <h3 class="devInfo__title">Service Name </h3>
-              <p class="devInfo__about" style="font-size:20px ;">  {{service.Service_name}} </p>
+              <h3 class="devInfo__title" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;color: brown;">Service Name </h3>
+              <p class="devInfo__about" style="font-size:20px ; text-align: center;  ">  {{service.Service_name}} </p>
               <br>
-              <h3 class="devInfo__title">Category of the Service </h3>
-              <p class="devInfo__about" style="font-size:20px ;">  {{service.category}} </p>
-              <br>
+            
 
-             <img style="height: 250px;width:350px;" src="{{service.image.url}}" />
+             <img style="height: 250px;width:750px;" src="{{service.image.url}}" />
               
             </div>
   
@@ -137,11 +135,11 @@ $(document).ready(function() {
 
           <div class="devInfo">
             
-            <h3 class="devInfo__title">Description</h3>
+            <h3 class="devInfo__title" style="text-align: center;">Description</h3>
 
             <div class="devInfo__skills">
               <div class="devSkill">
-                <h4 class="devSkill__title" style="font-size:20px ;">service:{{service.Service_name}} </h4>
+                <h4 class="devSkill__title" style="font-size:20px ;"><span style="font-size: 25px;">service:</span><hr/><br />{{service.Service_name}} </h4>
              <br>
              <br><br><br><br><br>
                 <p class="devSkill__info">
@@ -177,7 +175,7 @@ $(document).ready(function() {
 
           {% if request.user.is_authenticated %}
 
-        <a href="{% url 'add-to' service.id %}"><button type="submit"  class="btn  btn-outline-dark" style="float: right;color:white;"> <span class="text">Commande now</span> </button></a>
+        <a href="{% url 'add-to' service.id %}"><button type="submit" style="color:white;text-align: center; padding: 10px; background-color: aquamarine; color: white; margin-left: 300px;border-radius: 10px; color: black; font-weight: bold;"> <span class="text">Commander</span> </button></a>
 
         {% else %}
 
