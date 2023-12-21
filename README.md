@@ -38,7 +38,7 @@ Setup to run the application
 
 first thing to do is to clone repository :
 
-      $ git clone https://github.com/WebDevZakaria/phonestore.git
+      $ git clone https://github.com/WebDevZakaria/deploysearch-for-handymen.git
  
       $ cd phonestore
 
