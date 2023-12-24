@@ -1,38 +1,28 @@
+<h1> Search-for-handymen Website with Django </h1>
 
-Functionality:
 
-User Registration and Authentication:
+<h2>Project Overview</h2>
 
-Users can register for an account.
-Authentication system to log in and log out.
+a web application designed to connect users with local handymen for various services. Users can search for handymen based on their location,
+expertise. The platform aims to simplify the process of finding reliable handymen for home-related tasks.
 
-Handyman Listings:
+<h2>Features</h2>
+<hr/>
 
-Display a list of handymen available for  work.
-Include details such as name, skills, their location (wilaya) ...
+User Registration and Authentication:Users can register for an account, Authentication system to log in and log out.
 
-Service Requests:
+Handyman Listings:Display a list of handymen available for  work, Include details such as name, skills, their location (wilaya) ...
 
-Users can create service requests specifying the type of work they need.
+Service Requests: Users can create service requests specifying the type of work they need. Include details such as description, location,phone nuumber.
 
-Include details such as description, location,phone nuumber.
+Handyman Dashboard: Provide a dashboard for handymen to view and accept service requests, Handymen can update their profiles.
 
-Handyman Dashboard:
+Admin Dashboard: An admin panel to manage user accounts, service requests, and handyman profiles,Only accessible to administrators.
 
-Provide a dashboard for handymen to view and accept service requests.
+Search and Filters:Implement a search for users to find specific handymen or services by location (wilaya).
 
-Handymen can update their profiles.
-
-Admin Dashboard:
-
-An admin panel to manage user accounts, service requests, and handyman profiles.
-
-Only accessible to administrators.
-
-Search and Filters:
-
-Implement a search for users to find specific handymen or services by location (wilaya).
-
+<h2>Getting Started</h2>
+<hr/>
 
 Setup to run the application
 
